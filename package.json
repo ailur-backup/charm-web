@@ -1,0 +1,42 @@
+{
+  "name": "charm-web",
+  "version": "1.0.0",
+  "description": "Charm web client",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://git.ailur.dev/charm/charm-web"
+  },
+  "license": "AGPL-3.0-or-later",
+  "author": "Arzumify",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && node scripts/copy-assets.js",
+    "serve": "webpack serve --static dist --open --port 8000"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  },
+  "dependencies": {
+    "@catppuccin/palette": "^1.7.1",
+    "@noble/ed25519": "^2.2.3",
+    "bubblepop": "^1.0.1",
+    "hash-wasm": "^4.12.0"
+  },
+  "overrides": {
+    "blake3-wasm": "^3.0.0",
+    "@c4312/blake3-internal": "^3.0.0"
+  }
+}

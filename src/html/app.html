@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="latte sky"><head>
+    <meta charset="UTF-8">
+    <title>Charm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<div class="tooltip" id="tooltip" hidden="">
+    <p id="space-name">Example Space</p>
+</div>
+<div class="vertical-split">
+    <div class="header">
+        <h1>Charm</h1>
+        <object id="settings" data="/static/svg/settings.svg" type="image/svg+xml" class="svg-button"></object>
+    </div>
+    <div class="horizontal-split">
+        <div id="spaces">
+            <!-- Spaces will be appended here -->
+            <object id="new" data="/static/svg/add.svg" class="svg-button"></object>
+        </div>
+        <div id="rooms">
+            <!-- Rooms will be appended here -->
+            <span>Plenty of room for a room!</span>
+        </div>
+        <div class="messages">
+            <div id="messages" hidden="">
+                <!-- Messages will be appended here -->
+                <span>Nothing to see here.</span>
+            </div>
+            <div class="input" hidden="" id="input-container">
+                <input id="message" type="text" placeholder="Type a message">
+                <object id="send" data="/static/svg/send.svg" type="image/svg+xml" class="svg-button"></object>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div id="connection-status-dot" class="yellow green"></div>
+        <p id="connection-status">Connected</p>
+        <p id="status">Connecting to http://localhost:8080</p>
+    </div>
+</div>
+<script src="/static/js/app.js"></script>
+
+</body></html>

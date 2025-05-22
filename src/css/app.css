@@ -1,0 +1,190 @@
+@import "common.css";
+
+body {
+    margin: 0;
+}
+
+span {
+    margin: 10px;
+    font-size: 15px;
+}
+
+input, .tooltip, .svg-button {
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--surface0);
+    transition: ease 0.2s;
+}
+
+input:hover {
+    background-color: var(--surface1);
+}
+
+.tooltip {
+    position: fixed;
+    z-index: 1;
+}
+
+.tooltip p {
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    border-bottom: 1px solid var(--crust);
+    height: 40px;
+    padding: 5px;
+}
+
+.header h1 {
+    margin: auto auto auto 10px;
+    font-size: 25px;
+}
+
+.footer {
+    margin-top: auto;
+    background-color: var(--base);
+    display: flex;
+    border-top: 1px solid var(--crust);
+    height: 40px;
+    padding: 5px;
+}
+
+.footer p {
+    margin: auto 0;
+}
+
+.footer #connection-status-dot {
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 100%;
+    margin: auto 17.5px;
+}
+
+.footer #status {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+#spaces, #rooms {
+    border-right: 1px solid var(--crust);
+}
+
+#spaces {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    width: 64px;
+}
+
+#spaces img, #spaces .svg-button {
+    border-radius: 100%;
+    transition: ease 0.2s;
+}
+
+#spaces img {
+    margin-bottom: 10px;
+}
+
+#spaces img:hover, #spaces .svg-button:hover {
+    border-radius: 10px;
+}
+
+#rooms {
+    min-width: 15vw;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+#rooms .svg-button {
+    background-color: var(--base);
+    border: 1px solid var(--mantle);
+    margin: 5px 10px;
+}
+
+.messages, #messages {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.messages {
+    position: relative;
+}
+
+#messages {
+    overflow-y: auto;
+    padding-bottom: 48px;
+}
+
+.message {
+    display: flex;
+    padding: 10px;
+}
+
+.message p {
+    margin: 0 5px 5px 0;
+}
+
+.message img {
+    margin-right: 10px;
+}
+
+.message-header {
+    display: flex;
+}
+
+.message-header {
+    font-size: small;
+}
+
+.input {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+.input input {
+    width: 100%;
+    margin: 5px 0 5px 5px;
+}
+
+.input .svg-button {
+    margin: 5px;
+}
+
+.vertical-split {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 100%;
+}
+
+.horizontal-split {
+    width: 100%;
+    height: calc(100% - 100px);
+    display: flex;
+}

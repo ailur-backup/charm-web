@@ -1,0 +1,86 @@
+@import "catppuccin.css";
+
+.latte {
+    --text: var(--ctp-latte-text);
+    --subtext1: var(--ctp-latte-subtext1);
+    --subtext0: var(--ctp-latte-subtext0);
+    --overlay2: var(--ctp-latte-overlay2);
+    --overlay1: var(--ctp-latte-overlay1);
+    --overlay0: var(--ctp-latte-overlay0);
+    --surface2: var(--ctp-latte-surface2);
+    --surface1: var(--ctp-latte-surface1);
+    --surface0: var(--ctp-latte-surface0);
+    --base: var(--ctp-latte-base);
+    --mantle: var(--ctp-latte-mantle);
+    --crust: var(--ctp-latte-crust);
+    --rosewater: var(--ctp-latte-rosewater);
+    --flamingo: var(--ctp-latte-flamingo);
+    --pink: var(--ctp-latte-pink);
+    --mauve: var(--ctp-latte-mauve);
+    --red: var(--ctp-latte-red);
+    --maroon: var(--ctp-latte-maroon);
+    --peach: var(--ctp-latte-peach);
+    --yellow: var(--ctp-latte-yellow);
+    --green: var(--ctp-latte-green);
+    --teal: var(--ctp-latte-teal);
+    --sky: var(--ctp-latte-sky);
+    --sapphire: var(--ctp-latte-sapphire);
+    --blue: var(--ctp-latte-blue);
+    --lavender: var(--ctp-latte-lavender);
+}
+
+.latte.rosewater {
+    --color: var(--ctp-latte-rosewater);
+}
+
+.latte.flamingo {
+    --color: var(--ctp-latte-flamingo);
+}
+
+.latte.pink {
+    --color: var(--ctp-latte-pink);
+}
+
+.latte.mauve {
+    --color: var(--ctp-latte-mauve);
+}
+
+.latte.red {
+    --color: var(--ctp-latte-red);
+}
+
+.latte.maroon {
+    --color: var(--ctp-latte-maroon);
+}
+
+.latte.peach {
+    --color: var(--ctp-latte-peach);
+}
+
+.latte.yellow {
+    --color: var(--ctp-latte-yellow);
+}
+
+.latte.green {
+    --color: var(--ctp-latte-green);
+}
+
+.latte.teal {
+    --color: var(--ctp-latte-teal);
+}
+
+.latte.sky {
+    --color: var(--ctp-latte-sky);
+}
+
+.latte.sapphire {
+    --color: var(--ctp-latte-sapphire);
+}
+
+.latte.blue {
+    --color: var(--ctp-latte-blue);
+}
+
+.latte.lavender {
+    --color: var(--ctp-latte-lavender);
+}

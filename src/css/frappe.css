@@ -1,0 +1,86 @@
+@import "catppuccin.css";
+
+.frappe {
+    --text: var(--ctp-frappe-text);
+    --subtext1: var(--ctp-frappe-subtext1);
+    --subtext0: var(--ctp-frappe-subtext0);
+    --overlay2: var(--ctp-frappe-overlay2);
+    --overlay1: var(--ctp-frappe-overlay1);
+    --overlay0: var(--ctp-frappe-overlay0);
+    --surface2: var(--ctp-frappe-surface2);
+    --surface1: var(--ctp-frappe-surface1);
+    --surface0: var(--ctp-frappe-surface0);
+    --base: var(--ctp-frappe-base);
+    --mantle: var(--ctp-frappe-mantle);
+    --crust: var(--ctp-frappe-crust);
+    --rosewater: var(--ctp-frappe-rosewater);
+    --flamingo: var(--ctp-frappe-flamingo);
+    --pink: var(--ctp-frappe-pink);
+    --mauve: var(--ctp-frappe-mauve);
+    --red: var(--ctp-frappe-red);
+    --maroon: var(--ctp-frappe-maroon);
+    --peach: var(--ctp-frappe-peach);
+    --yellow: var(--ctp-frappe-yellow);
+    --green: var(--ctp-frappe-green);
+    --teal: var(--ctp-frappe-teal);
+    --sky: var(--ctp-frappe-sky);
+    --sapphire: var(--ctp-frappe-sapphire);
+    --blue: var(--ctp-frappe-blue);
+    --lavender: var(--ctp-frappe-lavender);
+}
+
+.frappe.rosewater {
+    --color: var(--ctp-frappe-rosewater);
+}
+
+.frappe.flamingo {
+    --color: var(--ctp-frappe-flamingo);
+}
+
+.frappe.pink {
+    --color: var(--ctp-frappe-pink);
+}
+
+.frappe.mauve {
+    --color: var(--ctp-frappe-mauve);
+}
+
+.frappe.red {
+    --color: var(--ctp-frappe-red);
+}
+
+.frappe.maroon {
+    --color: var(--ctp-frappe-maroon);
+}
+
+.frappe.peach {
+    --color: var(--ctp-frappe-peach);
+}
+
+.frappe.yellow {
+    --color: var(--ctp-frappe-yellow);
+}
+
+.frappe.green {
+    --color: var(--ctp-frappe-green);
+}
+
+.frappe.teal {
+    --color: var(--ctp-frappe-teal);
+}
+
+.frappe.sky {
+    --color: var(--ctp-frappe-sky);
+}
+
+.frappe.sapphire {
+    --color: var(--ctp-frappe-sapphire);
+}
+
+.frappe.blue {
+    --color: var(--ctp-frappe-blue);
+}
+
+.frappe.lavender {
+    --color: var(--ctp-frappe-lavender);
+}

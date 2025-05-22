@@ -1,0 +1,62 @@
+@import "common.css";
+
+.bubble-container  {
+    background-color: var(--overlay0);
+}
+
+.bubble-main {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    min-width: 200px;
+}
+
+.bubble-message {
+    color: #000;
+    font-family: "Arial", sans-serif;
+}
+
+.bubble-button {
+    background-color: #a8a8a8;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.bubble-button:hover {
+    background-color: #d8d8d8;
+}
+
+.bubble-input {
+    border: 1px solid #a8a8a8;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .bubble-main {
+        background-color: #1a1a1a;
+    }
+
+    .bubble-message {
+        color: #ffffff;
+    }
+
+    .bubble-button {
+        background-color: #2a2a2a;
+        color: #ffffff;
+    }
+
+    .bubble-button:hover {
+        background-color: #3a3a3a;
+    }
+
+    .bubble-input {
+        border: 1px solid #2a2a2a;
+        background-color: #1a1a1a;
+    }
+}

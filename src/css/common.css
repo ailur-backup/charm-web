@@ -1,0 +1,10 @@
+@import "frappe.css";
+@import "latte.css";
+@import "macchiato.css";
+@import "mocha.css";
+
+body {
+    color: var(--text);
+    background-color: var(--base);
+    font-family: Arial, sans-serif;
+}
