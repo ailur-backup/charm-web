@@ -1,32 +1,41 @@
 @import "common.css";
 
-.bubble-container  {
+.bubble-container::before  {
+    content: "";
     background-color: var(--overlay0);
+    filter: opacity(50%);
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .bubble-main {
-    background-color: #ffffff;
+    background-color: var(--base);
     border-radius: 10px;
     padding: 10px 20px;
     min-width: 200px;
 }
 
 .bubble-message {
-    color: #000;
+    color: var(--text);
     font-family: "Arial", sans-serif;
 }
 
 .bubble-button {
-    background-color: #a8a8a8;
-    color: #000;
+    background-color: var(--surface0);
+    color: var(--text);
     border: none;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+    transition: ease 0.2s;
 }
 
 .bubble-button:hover {
-    background-color: #d8d8d8;
+    background-color: var(--surface1);
 }
 
 .bubble-input {

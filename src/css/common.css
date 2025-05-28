@@ -2,6 +2,7 @@
 @import "latte.css";
 @import "macchiato.css";
 @import "mocha.css";
+@import "bubblepop.css";
 
 body {
     color: var(--text);

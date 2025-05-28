@@ -1,4 +1,4 @@
-import {sign, signAsync} from "@noble/ed25519";
+import {signAsync} from "@noble/ed25519";
 import {message} from "bubblepop";
 
 const statusBox: HTMLElement = document.getElementById("status")
@@ -15,8 +15,8 @@ export function error(msg: string) {
         if (statusBox) {
             statusBox.hidden = true
         }
-        throw new Error(msg)
     })
+    throw new Error(msg)
 }
 
 function b64_to_uint8(str: string): Uint8Array {
@@ -44,16 +44,32 @@ function string_to_uint8(str: string): Uint8Array {
     return arr
 }
 
+function uint8_to_array(arr: Uint8Array): Array<number> {
+    let array = new Array<number>(arr.length)
+    for (let i = 0; i < arr.length; i++) {
+        array[i] = arr[i]
+    }
+    return array
+}
+
+export async function new_request_body(data: Object): Promise<Object> {
+    try {
+        return {
+            data: data,
+            certificate: JSON.parse(localStorage.getItem('certificate')),
+            signature: uint8_to_array(await signAsync(string_to_uint8(JSON.stringify(data)), b64_to_uint8(localStorage.getItem('key'))))
+        }
+    } catch (e) {
+        error(e)
+    }
+}
+
 export async function perform_request(url: URL, data: Object): Promise<Response> {
     return fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            data: data,
-            certificate: JSON.parse(localStorage.getItem('certificate')),
-            signature: await signAsync(string_to_uint8(JSON.stringify(data)), b64_to_uint8(localStorage.getItem('key')))
-        })
+        body: JSON.stringify(await new_request_body(data))
     })
 }

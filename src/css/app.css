@@ -9,7 +9,7 @@ span {
     font-size: 15px;
 }
 
-input, .tooltip, .svg-button {
+input, .tooltip, .svg-button, button {
     color: var(--text);
     border: none;
     border-radius: 5px;
@@ -18,7 +18,7 @@ input, .tooltip, .svg-button {
     transition: ease 0.2s;
 }
 
-input:hover {
+input:hover, button {
     background-color: var(--surface1);
 }
 
@@ -106,15 +106,15 @@ input:hover {
 }
 
 #rooms {
-    min-width: 15vw;
+    width: 25vw;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
 
-#rooms .svg-button {
+#rooms button {
     background-color: var(--base);
-    border: 1px solid var(--mantle);
+    border: 1px solid var(--crust);
     margin: 5px 10px;
 }
 
@@ -145,6 +145,12 @@ input:hover {
 
 .message img {
     margin-right: 10px;
+}
+
+.message img {
+    margin-right: 10px;
+    max-width: 48px;
+    border-radius: 100%;
 }
 
 .message-header {
