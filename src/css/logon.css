@@ -1,0 +1,23 @@
+@import "common.css";
+
+.logon-container {
+    position: absolute;
+    --width: min(80vw, 420px);
+    left: 50vw;
+    top: min(calc((100vw - var(--width)) / 2), 100px);
+    transform: translatex(-50%);
+    width: var(--width);
+    background-color: var(--mantle);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logon-container input {
+    margin-bottom: 10px;
+}
+
+.logon-container h1, .logon-container p {
+    margin: 0 0 20px 0;
+}

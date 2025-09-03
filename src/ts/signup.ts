@@ -1,20 +1,20 @@
-import {hash_password} from "./users-common";
-import {error, status} from "./common";
-import {signup} from "./users-common";
+import {hashPassword} from "./users-common"
+import {error, lock, status} from "./common"
+import {signup} from "./users-common"
 
 try {
-    (<HTMLButtonElement>document.getElementById("signup")).addEventListener("click", async () => {
+    (<HTMLButtonElement>document.getElementById("signup")).addEventListener("click", lock(async () => {
         try {
-            let username = (<HTMLInputElement>document.getElementById("username")).value;
-            let password = (<HTMLInputElement>document.getElementById("password")).value;
-            let instance = (<HTMLInputElement>document.getElementById("instance")).value;
-            status("Hashing password...");
-            let key = await hash_password(username, password);
-            return signup(username, key, instance);
+            const username = (<HTMLInputElement>document.getElementById("username")).value
+            const password = (<HTMLInputElement>document.getElementById("password")).value
+            const instance = (<HTMLInputElement>document.getElementById("instance")).value
+            status("Hashing password...")
+            const key = await hashPassword(username, password)
+            return signup(username, key, new URL(instance))
         } catch (e) {
-            error(e);
+            error(e)
         }
-    });
+    }))
 } catch (e) {
-    error(e);
+    error(e)
 }

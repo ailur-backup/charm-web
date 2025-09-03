@@ -1,11 +1,84 @@
+@import "catppuccin.css";
 @import "frappe.css";
 @import "latte.css";
 @import "macchiato.css";
 @import "mocha.css";
-@import "bubblepop.css";
 
 body {
     color: var(--text);
     background-color: var(--base);
     font-family: Arial, sans-serif;
+}
+
+input, .menu, .svg-button, button, .prompt-button, .prompt-input {
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: var(--surface1);
+    transition: ease 0.2s;
+}
+
+input:hover, button:hover, .svg-button:hover, .prompt-button::hover, .prompt-input::hover {
+    background-color: var(--surface2);
+}
+
+.prompt-backdrop::before {
+    content: "";
+    background-color: var(--overlay0);
+    filter: opacity(50%);
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.prompt-backdrop {
+    z-index: 1;
+    position: fixed;
+    inset: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.prompt-container {
+    background-color: var(--base);
+    border-radius: 10px;
+    padding: 10px 20px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.prompt-title {
+    margin-bottom: 5px;
+}
+
+.prompt-title, .prompt-subtitle {
+    color: var(--text);
+    font-family: "Arial", sans-serif;
+}
+
+.prompt-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 500px) {
+    .mobile-hidden {
+        display: none;
+    }
 }

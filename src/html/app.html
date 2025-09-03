@@ -4,43 +4,69 @@
     <title>Charm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/static/css/app.css">
+    <style>
+        @import url("/static/css/app.css");
+        @import url("/static/css/common.css");
+    </style>
 </head>
 <body>
-<div class="tooltip" id="tooltip" hidden>
+<div class="menu hidden" id="tooltip">
     <p id="space-name">Example Space</p>
+</div>
+<div class="context-menu menu hidden" id="rightclick">
+    <button id="invite" class="hidden">Invite</button>
+    <button id="leave" class="hidden">Leave</button>
+    <button id="delete">Delete</button>
+</div>
+<div class="account-backdrop hidden" id="account">
+    <div class="account-container">
+        <h1>Account</h1>
+        <p id="greeting">Loading...</p>
+        <button id="logout">Logout</button>
+        <button id="delete">Delete Account</button>
+        <button id="close">Close</button>
+    </div>
 </div>
 <div class="vertical-split">
     <div class="header">
-        <h1>Charm</h1>
-        <object id="settings" data="/static/svg/settings.svg" type="image/svg+xml" class="svg-button"></object>
+        <h1 id="titlebar">Charm</h1>
+        <div id="back" class="svg-button hidden">
+            <embed src="/static/svg/open_left_panel.svg" type="image/svg+xml" class="svg-button-image"></embed>
+        </div>
+        <div id="settings" class="svg-button">
+            <embed src="/static/svg/settings.svg" type="image/svg+xml" class="svg-button-image"></embed>
+        </div>
     </div>
     <div class="horizontal-split">
         <div id="spaces">
             <!-- Spaces will be appended here -->
-            <object id="new" data="/static/svg/add.svg" class="svg-button"></object>
+            <div id="new" class="svg-button">
+                <embed src="/static/svg/add.svg" type="image/svg+xml" class="svg-button-image"></embed>
+            </div>
         </div>
         <div id="rooms">
             <!-- Rooms will be appended here -->
-            <span>No rooms yet!<br>Select a space to get started.</span>
+             <span>Open a space to view rooms!</span>
         </div>
-        <div class="messages">
-            <div id="messages" hidden="">
+        <div class="messages hidden" id="messages-container">
+            <div id="messages">
                 <!-- Messages will be appended here -->
-                <span>No messages yet! Select a room to start chatting.</span>
+                <span>No messages yet! Why not be the first?</span>
             </div>
-            <div class="input" hidden id="input-container">
+            <div class="input">
                 <input id="message" type="text" placeholder="Type a message">
-                <object id="send" data="/static/svg/send.svg" type="image/svg+xml" class="svg-button"></object>
+                <div id="send" class="svg-button">
+                    <embed src="/static/svg/send.svg" type="image/svg+xml" class="svg-button-image"></embed>
+                </div>
             </div>
         </div>
     </div>
     <div class="footer">
         <div id="connection-status-dot" class="yellow"></div>
         <p id="connection-status">Connecting</p>
-        <p id="status" hidden></p>
+        <p id="status" class="hidden"></p>
     </div>
 </div>
 <script src="/static/js/app.js"></script>
-
-</body></html>
+</body>
+</html>

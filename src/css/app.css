@@ -1,5 +1,3 @@
-@import "common.css";
-
 body {
     margin: 0;
 }
@@ -9,26 +7,18 @@ span {
     font-size: 15px;
 }
 
-input, .tooltip, .svg-button, button {
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: var(--surface0);
-    transition: ease 0.2s;
-}
-
-input:hover, button {
-    background-color: var(--surface1);
-}
-
-.tooltip {
+.menu {
     position: fixed;
     z-index: 1;
 }
 
-.tooltip p {
+.menu p {
     margin: 0;
+}
+
+.context-menu {
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -45,7 +35,6 @@ input:hover, button {
 
 .footer {
     margin-top: auto;
-    background-color: var(--base);
     display: flex;
     border-top: 1px solid var(--crust);
     height: 40px;
@@ -89,33 +78,47 @@ input:hover, button {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    width: 64px;
+    width: 48px;
+    flex-shrink: 0;
 }
 
 #spaces img, #spaces .svg-button {
     border-radius: 100%;
     transition: ease 0.2s;
+    height: 28px;
+    width: 28px;
 }
 
 #spaces img {
     margin-bottom: 10px;
+    height: 48px;
+    width: 48px;
 }
 
 #spaces img:hover, #spaces .svg-button:hover {
     border-radius: 10px;
 }
 
+.hover {
+    border-radius: 10px;
+}
+
 #rooms {
-    width: 25vw;
+    width: max(25vw, 150px);
+    padding-top: 5px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    flex-shrink: 0;
 }
 
 #rooms button {
-    background-color: var(--base);
     border: 1px solid var(--crust);
     margin: 5px 10px;
+}
+
+#rooms span {
+    margin-top: 5px;
 }
 
 .messages, #messages {
@@ -149,7 +152,8 @@ input:hover, button {
 
 .message img {
     margin-right: 10px;
-    max-width: 48px;
+    width: 48px;
+    height: 48px;
     border-radius: 100%;
 }
 
@@ -176,6 +180,8 @@ input:hover, button {
 
 .input .svg-button {
     margin: 5px;
+    height: 24px;
+    width: 24px;
 }
 
 .vertical-split {
@@ -193,4 +199,49 @@ input:hover, button {
     width: 100%;
     height: calc(100% - 100px);
     display: flex;
+}
+
+#messages, #rooms, #spaces, #rooms button, .header, .footer {
+    background-color: var(--base);
+}
+
+.header .svg-button {
+    width: 20px;
+    height: 20px;
+}
+
+:where(.svg-button) {
+    display: flex;
+    flex-shrink: 0;
+}
+
+:where(.header #back) {
+    margin-right: auto;
+    display: none;
+}
+
+.svg-button-image {
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 500px) {
+    #rooms {
+        width: calc(100% - 70px);
+    }
+
+    #status {
+        display: none;
+    }
+    
+    .horizontal-split {
+        position: relative;
+    }
+    
+    .messages {
+        position: absolute;
+    }
+    
+    :where(.header #back) {
+        display: flex;
+    }
 }

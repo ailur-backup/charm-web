@@ -5,14 +5,20 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        @import url("/static/css/logon.css");
+        @import url("/static/css/common.css");
+    </style>
 </head>
 <body>
-    <h1>Login</h1>
-    <p id="status" hidden></p>
-    <input id="username" type="text" placeholder="Username">
-    <input id="password" type="password" placeholder="Password">
-    <input id="instance" type="text" placeholder="Instance">
-    <button id="login">Login</button>
-    <script src="/static/js/login.js"></script>
+    <div class="logon-container">
+        <h1>Login</h1>
+        <p id="status" class="hidden"></p>
+        <input id="username" type="text" placeholder="Username">
+        <input id="password" type="password" placeholder="Password">
+        <input id="instance" type="text" placeholder="Instance">
+        <button id="login">Login</button>
+        <script src="/static/js/login.js"></script>
+    </div>
 </body>
 </html>

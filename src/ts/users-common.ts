@@ -1,12 +1,13 @@
-import {argon2id, createBLAKE3} from "hash-wasm";
-import {getPublicKeyAsync, signAsync} from "@noble/ed25519";
-import {error, status, uint8_to_b64} from "./common";
+import {argon2id, createBLAKE3} from "hash-wasm"
+import {getPublicKeyAsync, signAsync} from "@noble/ed25519"
+import {error, getTheme, status, Uint8ToBase64} from "./common"
+import { accept } from "./prompts"
 
 export async function blake3(input: string): Promise<Uint8Array> {
     return (await createBLAKE3()).update(input).digest("binary")
 }
 
-export async function hash_password(username: string, password: string): Promise<Uint8Array> {
+export async function hashPassword(username: string, password: string): Promise<Uint8Array> {
     return await argon2id({
         password: password,
         salt: await blake3(username),
@@ -18,45 +19,58 @@ export async function hash_password(username: string, password: string): Promise
     })
 }
 
-export async function login(username: string, key: Uint8Array, instance: string): Promise<void> {
-    status("Generating signature...");
-    let signature = Array.from(await signAsync(new Uint8Array(1), key))
-    status("Logging in...");
-    let response = await fetch(`${instance}/api/v1/users/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            user: {
-                username: username,
-                server: {
-                    domain: instance,
-                }
+export async function login(username: string, key: Uint8Array, instance: URL): Promise<void> {
+    status("Generating signature...")
+    const signature = Array.from(await signAsync(new Uint8Array(1), key))
+    status("Logging in...")
+    let response: Response
+    try {
+        response = await fetch(new URL("/api/v1/users/login", instance), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
             },
-            signature: signature,
-            data: 0,
-        }),
-    })
+            body: JSON.stringify({
+                user: {
+                    username: username,
+                    server: {
+                        domain: instance.host,
+                    }
+                },
+                signature: signature,
+                data: 0,
+            }),
+        })
+    } catch (e) {
+        error(`Login failed! ${e}`)
+    }
     if (response.status === 200) {
-        status("Login successful!");
-        let data = await response.json();
-        localStorage.setItem("username", username);
-        localStorage.setItem("key", uint8_to_b64(key));
-        localStorage.setItem("certificate", JSON.stringify(data));
-        localStorage.setItem("instance", instance);
-        window.location.href = "/app";
+        status("Login successful!")
+        const data = await response.json()
+        if (data.data.components.user.server.domain !== instance.host) {
+            if (!accept({
+                title: "Warning",
+                subtitle: "The instance URL you provided was not the same as the instance URL the server advertised as. Is this ok?"}
+            )) {
+                error("Instance is incorrect! Will not proceed.")
+            }
+        }
+        localStorage.setItem("username", username)
+        localStorage.setItem("key", Uint8ToBase64(key))
+        localStorage.setItem("certificate", JSON.stringify(data.data))
+        localStorage.setItem("instance", data.data.components.user.server.domain)
+        localStorage.setItem("prefix", instance.protocol)
+        window.location.href = "/app"
     } else {
-        error("Login failed! Status code: " + response.status);
+        error("Login failed! Status code: " + response.status)
     }
 }
 
-
-export async function signup(username: string, key: Uint8Array, instance: string): Promise<void> {
-    status("Generating public key...");
-    let pubKey = Array.from(await getPublicKeyAsync(key));
-    status("Signing up...");
-    let response = await fetch(`${instance}/api/v1/users/create`, {
+export async function signup(username: string, key: Uint8Array, instance: URL): Promise<void> {
+    status("Generating public key...")
+    const pubKey = Array.from(await getPublicKeyAsync(key))
+    status("Signing up...")
+    const response = await fetch(new URL("/api/v1/users/create", instance), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -71,10 +85,10 @@ export async function signup(username: string, key: Uint8Array, instance: string
         })
     })
     if (response.status === 201) {
-        return login(username, key, instance);
+        return login(username, key, instance)
     } else {
-        error("Signup failed! Status code: " + response.status);
+        error("Signup failed! Status code: " + response.status)
     }
 }
 
-console.log("Adding event listener for signup");
+getTheme()

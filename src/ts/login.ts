@@ -1,18 +1,18 @@
-import {error, status} from "./common";
-import {hash_password, login} from "./users-common";
+import {error, getTheme, lock, status} from "./common"
+import {hashPassword, login} from "./users-common"
 
 try {
-    (<HTMLButtonElement>document.getElementById("login")).addEventListener("click", async () => {
+    (<HTMLButtonElement>document.getElementById("login")).addEventListener("click", lock(async () => {
         try {
-            let username = (<HTMLInputElement>document.getElementById("username")).value;
-            let password = (<HTMLInputElement>document.getElementById("password")).value;
-            let instance = (<HTMLInputElement>document.getElementById("instance")).value;
-            status("Hashing password...");
-            return login(username, await hash_password(username, password), instance);
+            const username = (<HTMLInputElement>document.getElementById("username")).value
+            const password = (<HTMLInputElement>document.getElementById("password")).value
+            const instance = (<HTMLInputElement>document.getElementById("instance")).value
+            status("Hashing password...")
+            return login(username, await hashPassword(username, password), new URL(instance))
         } catch (e) {
-            error(e);
+            error(e)
         }
-    });
+    }))
 } catch (e) {
     error(e)
 }
